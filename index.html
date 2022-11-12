@@ -7,51 +7,58 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
-    <title>Document</title>
+    <title>login</title>
 </head>
 
 <body>
 
-    <div class="login-page grid align-items-center grid-template-columns">
+    <div class="login-page grid align-items-center">
+
+        <!-- image-container-left-section  -->
 
         <div class="image-container">
-
 
             <div class="gradient-color-box flex align-items-start flex-direction-column">
 
                 <div>
                     <div class="flex admin align-items-center">
-                        <img src="/img/Group 517 (1).png" alt=""><span class="bold">admin</span>
+                        <img src="img/Group 517 (1).png" alt=""><span class="bold">admin</span>
                     </div>
                 </div>
 
                 <div class="gradient-color-box-image">
-                    <img src="/img/Group 567.png" alt="img-logo">
+                    <img src="img/Group 567.png" alt="img-logo">
                 </div>
+                
             </div>
         </div>
 
 
+        <!-- login-container-right-section -->
 
         <div class="login-container flex align-items-center flex-direction-column">
 
             <div class="i-info flex">
-                <div class="i-info-width"><img src="/img/i.png" alt=""></div>
+                <div class="i-info-width">
+                    <svg>
+                        <use href="#svg-info-circle"></use>
+                    </svg>
+                </div>
             </div>
-
 
 
             <div class="login-box flex align-items-center flex-direction-column">
                 <h1>Authorization</h1>
                 <div class="login-box-content flex  align-items-center flex-direction-column">
                     <input type="text" placeholder="Login">
-                    
-                        <div class="password"><input type="password" placeholder="Password">
-                            <div><i class="fa-solid fa-eye"></i></div>
-                        </div>
-                    <button class="button">Enter</button>
+
+                    <div class="password"><input type="password" placeholder="Password">
+                        <div><i class="fa-solid fa-eye"></i></div>
+                    </div>
+                    <a href="table.html"><button class="button">Enter</button></a>
                 </div>
             </div>
+
 
             <div class="copy-rights flex">
                 <span> © 2022 All rights reserved</span>
@@ -59,6 +66,22 @@
 
 
         </div>
+    </div>
+
+
+
+
+
+
+
+    <!-- ----------svgs----- -->
+    <div hidden>
+        <svg id="svg-info-circle" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25" fill="">
+            <circle cx="12.5" cy="12.5" r="12.5" stroke="none" fill="" />
+            <path 
+                d="M12.2273 18V9.27273H13.5682V18H12.2273ZM12.9091 7.81818C12.6477 7.81818 12.4223 7.72917 12.233 7.55114C12.0473 7.37311 11.9545 7.15909 11.9545 6.90909C11.9545 6.65909 12.0473 6.44508 12.233 6.26705C12.4223 6.08902 12.6477 6 12.9091 6C13.1705 6 13.3939 6.08902 13.5795 6.26705C13.7689 6.44508 13.8636 6.65909 13.8636 6.90909C13.8636 7.15909 13.7689 7.37311 13.5795 7.55114C13.3939 7.72917 13.1705 7.81818 12.9091 7.81818Z"
+                fill="" stroke="" />
+        </svg>
     </div>
 
 </body>

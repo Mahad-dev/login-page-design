@@ -3,49 +3,66 @@
   padding: 0;
   box-sizing: border-box;
 }
+@font-face {
+  font-family: 'harmonia';
+  src: url(/font/HarmoniaSansProCyr-Light.ttf);
+}
+body {
+  font-family: 'harmonia';
+  background-color: var(--body-bg-color);
+}
 img {
   width: 100%;
 }
+svg {
+  width: 100%;
+  max-height: 100%;
+}
+a{
+  text-decoration: none;
+}
 :root {
-  --dark-mode: #121212d8;
-  --white-mode: #ffffff;
+  --body-bg-color: #121212d8;
+  --i-info-fill: rgba(69, 70, 74, 1);
+  --i-info-stroke:#fFf;
+  --login-box-bg-color: rgba(69, 70, 74, 1);
+  --login-box-shadow: 0px 4px 69px #222325;
+  --login-box-input-border: 1px solid gray;
+  --font-color: #fff;
   --buttons: rgba(64, 158, 255, 1);
   --gradient: linear-gradient(to bottom, #fd4869, #922da4);
-    color-scheme: light dark;
+  --side-bar-bg-color: #2b2c2f;
+  --side-bar-font-color: rgba(118, 120, 124, 1);
+  --side-bar-box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  --side-bar-logo-text: #fff;
+  --side-bar-svg-hover-color:#Fff;
+  --side-bar-li-hover-color:#fff;
+  --side-bar-li-hover-bg-color:rgba(0, 0, 0, 0.403);
 }
-
-/* @media screen and (prefers-color-scheme: dark) {
-    p {
-      color: #fff;
-    }
+@media screen and (prefers-color-scheme: light) {
+  :root {
+    --body-bg-color: #d1d1d163;
+    --i-info-fill: #fff;
+    --i-info-stroke: rgba(69, 70, 74, 1);
+    --login-box-bg-color: #fff;
+    --login-box-shadow: 0px 4px 69px #e6e6e6;
+    --font-color: #606266;
+    --side-bar-bg-color: #fff;
+    --side-bar-font-color: rgba(48, 49, 51, 1);
+    --side-bar-box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    --side-bar-logo-text: rgb(0, 0, 0);
+    --side-bar-svg-hover-color:rgba(64, 158, 255, 1);
+    --side-bar-li-hover-color:rgba(64, 158, 255, 1);
+    --side-bar-li-hover-bg-color:#FFF;
   }
-  @media screen and (prefers-color-scheme: light) {
-    p {
-      color: #000;
-    }
-  }
-  
-  p {
-    color: #000;
-    @media screen and (prefers-color-scheme: dark) {
-      color: #fff;
-    }
-  } */
-
-
+}
 /* ---utility classes--- */
-[testContent="abcd"] {
-    background: red;
-}
 
 .flex {
   display: flex;
 }
 .grid {
   display: grid;
-}
-.grid-template-columns {
-  grid-template-columns: 1fr 1.5fr;
 }
 .align-items-center {
   align-items: center;
@@ -56,27 +73,23 @@ img {
 .justify-content-center {
   justify-content: center;
 }
-.justify-content-flex-end{
-    justify-content: flex-end;
+.justify-content-flex-end {
+  justify-content: flex-end;
 }
 .flex-direction-column {
   flex-direction: column;
 }
-.bold{
-    font-weight: bold;
-}
-@font-face {
-  font-family: 'harmonia';
-  src: url(/font/HarmoniaSansProCyr-Light.ttf);
+.bold {
+  font-weight: bold;
 }
 /* ---utility classes-End--- */
-body {
-  background-color: var(--dark-mode);
-  font-family: 'harmonia';
-}
+
+/*-------index-html-login-page-css--------*/
+
 .login-page {
   min-height: 100vh;
   padding: 0.5rem;
+  grid-template-columns: 1fr 1.5fr;
 }
 .gradient-color-box {
   background: var(--gradient);
@@ -101,28 +114,31 @@ body {
 .login-container {
   height: 100%;
 }
+#svg-circle path {
+  fill: var(--svg-circle-dark);
+}
 .login-box-content {
   width: 100%;
 }
 .login-container .login-box {
+  background-color: var(--login-box-bg-color);
+  box-shadow: var(--login-box-shadow);
   width: 55%;
-  min-width: 460px;
+  min-width: 420px;
   max-width: 560px;
-  background-color: rgba(69, 70, 74, 1);
   border-radius: 9px;
   padding: 2rem 2rem 4rem 2rem;
   margin: auto;
-  box-shadow: 0px 4px 69px #222325;
 }
 .login-container .login-box h1 {
-  color: white;
-  margin: 0rem 0rem 0.7rem 0rem;
+  color: var(--font-color);
+  margin-bottom: 0.7rem;
 }
 .login-container .login-box input {
+  border: var(--login-box-input-border);
   width: 80%;
   margin-top: 1.3rem;
   padding: 1rem;
-  border: 1px solid gray;
   border-radius: 4px;
 }
 .login-container .login-box .password {
@@ -137,7 +153,7 @@ body {
   color: rgba(4, 4, 4, 0.422);
   cursor: pointer;
 }
-.login-container .login-box button {
+.login-container .login-box  button {
   background-color: var(--buttons);
   border: none;
   border-radius: 4px;
@@ -146,50 +162,63 @@ body {
   width: 80%;
   margin-top: 1.3rem;
 }
+.login-container .login-box a{
+  width: 100%;
+  text-align: center;
+}
 .login-container .login-box button:hover {
-  background-color: rgba(64, 160, 255, 0.644);
+  background-color: rgba(64, 160, 255, 0.862);
   cursor: pointer;
 }
 .login-container .i-info {
   position: absolute;
   top: 1%;
   right: 0.5%;
+  cursor: pointer;
 }
 .login-container .i-info-width {
-  width: 100%;
+  width: 2rem;
+  max-height: 2rem;
+}
+.i-info-width svg {
+  fill: var(--i-info-fill);
+  stroke: var(--i-info-stroke);
 }
 .copy-rights span {
   color: rgba(168, 171, 178, 1);
 }
+/*-------index-html-login-page-css-End--------*/
 
-/*-----------table-page------ */
+/*-----------table-page-css----- */
 
+/*-------------- side-bar --------- */
 .side-bar {
-  display: flex;
-  justify-content: space-between;
-  max-width: 240px;
-  background-color: rgba(43, 44, 47, 1);
-  padding: 1rem 0rem;
+  background-color: var(--side-bar-bg-color);
+  color: var(--side-bar-font-color);
+  max-width: 400px;
+  box-shadow: var(--side-bar-box-shadow);
+  padding: 1.5rem 0rem;
   width: 20%;
   height: 100vh;
   overflow: auto;
-  min-width: 200px;
-  color: white;
+  min-width: 280px;
 }
 .side-bar .side-bar-logo-img {
   width: 9.5rem;
-  padding: 0rem 1rem;
+  padding: 0rem 1.5rem;
   margin-bottom: 1.5rem;
 }
-.side-bar .side-bar-logo-img span{
-font-size: 1.4rem;
-margin-left: 0.5rem;
+.side-bar .side-bar-logo-img span {
+  color: var(--side-bar-logo-text);
+  font-weight: bolder;
+  font-size: 1.4rem;
+  margin-left: 0.5rem;
 }
 .side-bar .list-images {
-  width: 1.5rem;
+  width: 2rem;
+  max-height: 2rem;
   margin-right: 1rem;
   display: flex;
-  /* text-align: center; */
 }
 .side-bar ul {
   list-style: none;
@@ -200,12 +229,23 @@ margin-left: 0.5rem;
   padding: 0.6rem 1.5rem;
   display: flex;
   align-items: center;
-   color:rgba(118, 120, 124, 1);
+  cursor: pointer;
 }
-.side-bar ul li:hover{
-background-color: rgba(0, 0, 0, 0.403);
+.side-bar ul li:hover {
+  background-color: var(--side-bar-li-hover-bg-color);
+}
+.side-bar ul li .list-images svg {
+  stroke: #606266;
+  fill: none;
+}
+.side-bar ul li:hover svg {
+  stroke: var(--side-bar-svg-hover-color);
+}
+.side-bar ul li:hover {
+  color: var(--side-bar-li-hover-color);
 }
 .side-bar-copy-right {
   margin-top: auto;
   color: rgba(118, 120, 124, 1);
 }
+
